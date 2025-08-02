@@ -8,24 +8,23 @@
   <link rel='shortcut icon' href='ICON.jpg' />
 </head>
 <body>
-  <h1 data-i18n="title">Hệ thống giám sát dung môi ACCU</h1>
+  <h1>Hệ thống giám sát dung môi ACCU</h1>
 
   <div class="controls">
-    <button data-filter="all" class="active" data-i18n="all">Tất cả</button>
-    <button data-filter="full" data-i18n="full">Đầy</button>
-    <button data-filter="empty" data-i18n="empty">Cạn</button>
-    <button data-filter="disconnected" data-i18n="disconnected">Mất kết nối</button>
-    <button data-filter="unknown" data-i18n="unknown">Không rõ</button>
-    <button data-filter="connected" data-i18n="connected">Đã kết nối</button>
-    <button id="lang-toggle">Chuyển sang English</button>
+    <button data-filter="all" class="active">Tất cả</button>
+    <button data-filter="full">Đầy</button>
+    <button data-filter="empty">Cạn</button>
+    <button data-filter="disconnected">Mất kết nối</button>
+    <button data-filter="unknown">Chưa lắp cảm biến</button>
+    <button data-filter="connected">Đã kết nối</button>
   </div>
 
   <div class="legend">
-    <span>🔋 = Full</span>
-    <span>🪫 = Empty</span>
-    <span>📵 = Disconnected</span>
-    <span>💧 = Pumping</span>
-    <span>❌ = Unknown</span>
+    <span>🔋 = Đầy |</span>
+    <span>🪫 = Cạn |</span>
+    <span>📵 = Mất kết nối |</span>
+    <span>💧 = Đang bơm |</span>
+    <span>❌ = Chưa lắp cảm biến</span>
   </div>
 
   <div id="stats" class="stats"></div>

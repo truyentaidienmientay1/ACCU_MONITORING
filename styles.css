@@ -168,3 +168,8 @@ h1 {
 .cell.pumping.empty::after {
   content: "";
 }
+.rack-stats {
+  font-size: 14px;
+  color: #ccc;
+  margin: 10px 0;
+}
