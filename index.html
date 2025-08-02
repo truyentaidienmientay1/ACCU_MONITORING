@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hệ thống giám sát dung môi ACCU</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel='shortcut icon' href='ICON.jpg' />
+</head>
+<body>
+  <h1 data-i18n="title">Hệ thống giám sát dung môi ACCU</h1>
+
+  <div class="controls">
+    <button data-filter="all" class="active" data-i18n="all">Tất cả</button>
+    <button data-filter="full" data-i18n="full">Đầy</button>
+    <button data-filter="empty" data-i18n="empty">Cạn</button>
+    <button data-filter="disconnected" data-i18n="disconnected">Mất kết nối</button>
+    <button data-filter="unknown" data-i18n="unknown">Không rõ</button>
+    <button data-filter="connected" data-i18n="connected">Đã kết nối</button>
+    <button id="lang-toggle">Chuyển sang English</button>
+  </div>
+
+  <div class="legend">
+    <span>🔋 = Full</span>
+    <span>🪫 = Empty</span>
+    <span>📵 = Disconnected</span>
+    <span>💧 = Pumping</span>
+    <span>❌ = Unknown</span>
+  </div>
+
+  <div id="stats" class="stats"></div>
+  <div id="racks" class="centered"></div>
+  <div class="footer" id="footer"></div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics-compat.js"></script>
+
+  <!-- Script chính -->
+  <script src="script.js"></script>
+</body>
+</html>
