@@ -1,3 +1,4 @@
+// Cấu hình Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyDr9CIKuXLizbXrshlaU3PgcbLoMfTpuz8",
   authDomain: "iot-pillow-8244a.firebaseapp.com",
@@ -53,30 +54,41 @@ firebase.database().ref(BASE_PATH + "P1_R").on("value", snapshot => {
   isPumping = snapshot.val() === 1;
 });
 
-setInterval(() => {
-  const now = Date.now();
-  const inactive = now - lastP1CTime > 10000;
-
-  batteryLayout = {
-    "Kệ 1": createBatteryLayout(),
-    "Kệ 2": createBatteryLayout()
-  };
-
-  batteryLayout["Kệ 1"][0][0].status = inactive
-    ? "disconnected"
-    : isPumping
-    ? "pumping"
-    : lastP1SState;
-
-  renderLayout();
-}, 1000);
-
+// Khởi tạo giao diện
 const racksDiv = document.getElementById("racks");
 const footer = document.getElementById("footer");
 const statsDiv = document.getElementById("stats");
 const filterButtons = document.querySelectorAll(".controls button[data-filter]");
+const loader = document.getElementById("loader");
+
 let currentFilter = "all";
-//////////////////////////////
+
+// Hiển thị thanh tiến trình 10 giây đầu
+loader.style.display = "block";
+
+setTimeout(() => {
+  loader.style.display = "none";
+
+  setInterval(() => {
+    const now = Date.now();
+    const inactive = now - lastP1CTime > 10000;
+
+    batteryLayout = {
+      "Kệ 1": createBatteryLayout(),
+      "Kệ 2": createBatteryLayout()
+    };
+
+    batteryLayout["Kệ 1"][0][0].status = inactive
+      ? "disconnected"
+      : isPumping
+      ? "pumping"
+      : lastP1SState;
+
+    renderLayout();
+  }, 1000);
+}, 11000);
+
+// Vẽ lại giao diện dựa trên trạng thái các cell
 function renderLayout() {
   racksDiv.innerHTML = "";
 
@@ -86,12 +98,10 @@ function renderLayout() {
     const rack = document.createElement("div");
     rack.className = "rack";
 
-    // Tiêu đề kệ
     const title = document.createElement("h2");
     title.textContent = rackName;
     rack.appendChild(title);
 
-    // Thống kê cho từng kệ
     const localStats = {
       full: 0,
       empty: 0,
@@ -101,7 +111,6 @@ function renderLayout() {
       connected: 0
     };
 
-    // Đếm và tạo layout từng cell
     rows.forEach(row => {
       const rowDiv = document.createElement("div");
       rowDiv.className = "row";
@@ -144,7 +153,6 @@ function renderLayout() {
       }
     });
 
-    // Thêm phần thống kê bên dưới tiêu đề
     const statsHTML = document.createElement("div");
     statsHTML.className = "rack-stats";
     statsHTML.innerHTML = `
@@ -156,7 +164,6 @@ function renderLayout() {
         ❌ Chưa lắp cảm biến: ${localStats.unknown}
       </div>
     `;
-    // Chèn vào ngay sau <h2>
     rack.insertBefore(statsHTML, rack.children[1]);
 
     if (rack.children.length > 1) {
@@ -168,7 +175,7 @@ function renderLayout() {
   footer.textContent = `Được thiết kế bởi Nguyễn Hữu Phước - Cập nhật lần cuối: ${new Date().toLocaleTimeString()}`;
 }
 
-//////////////////////////////
+// Gắn sự kiện nút lọc
 filterButtons.forEach(btn => {
   btn.addEventListener("click", () => {
     filterButtons.forEach(b => b.classList.remove("active"));
@@ -177,6 +184,3 @@ filterButtons.forEach(btn => {
     renderLayout();
   });
 });
-
-renderLayout();
-

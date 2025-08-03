@@ -8,7 +8,12 @@
   <link rel='shortcut icon' href='ICON.jpg' />
 </head>
 <body>
-  <h1>Hệ thống giám sát dung môi ACCU</h1>
+  <div class="hero-banner">
+  <div class="hero-overlay">
+    <h1>Hệ thống giám sát dung môi ACCU</h1>
+    <p>Giám sát thông minh – Cảnh báo tức thì – An toàn hệ thống</p>
+  </div>
+</div>
 
   <div class="controls">
     <button data-filter="all" class="active">Tất cả</button>
@@ -27,6 +32,13 @@
     <span>❌ = Chưa lắp cảm biến</span>
   </div>
 
+  <div id="loader" class="loader-container">
+  <div class="loader-bar">
+    <div class="loader-fill"></div>
+  </div>
+  <p>VUI LÒNG CHỜ VÀI GIÂY - HỆ THỐNG ĐANG TẢI DỮ LIỆU TỪ CÁC THIẾT BỊ...</p>
+</div>
+
   <div id="stats" class="stats"></div>
   <div id="racks" class="centered"></div>
   <div class="footer" id="footer"></div>
@@ -35,6 +47,8 @@
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics-compat.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
 
   <!-- Script chính -->
   <script src="script.js"></script>
