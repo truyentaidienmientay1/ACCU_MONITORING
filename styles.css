@@ -224,7 +224,7 @@ h1 {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);   /* lớp phủ mờ */
-  backdrop-filter: blur(8px);             /* hiệu ứng nhòe */
+  backdrop-filter: blur(4px);             /* hiệu ứng nhòe */
   z-index: 0;
 }
 
@@ -262,3 +262,4 @@ h1 {
   font-family: 'Roboto', sans-serif;
   
 }
+
