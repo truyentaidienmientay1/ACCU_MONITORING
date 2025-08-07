@@ -6,6 +6,7 @@ body {
   text-align: center;
   margin: 0;
   padding: 0;
+  margin-left: 100px;
 }
 
 /* Tiêu đề chính */
@@ -332,4 +333,5 @@ h1 {
   flex-direction: column;
   align-items: center; /* canh giữa ngang */
   justify-content: flex-start;
+
 }
