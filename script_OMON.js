@@ -181,3 +181,7 @@ filterButtons.forEach(btn => {
     renderLayout();
   });
 });
+// Ẩn/hiện thanh menu khi bấm nút
+document.getElementById("toggle-menu").addEventListener("click", function () {
+  document.getElementById("menu").classList.toggle("hidden");
+});
