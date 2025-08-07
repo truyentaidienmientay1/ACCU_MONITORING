@@ -78,15 +78,12 @@ setTimeout(() => {
       "Kệ 2": createBatteryLayout()
     };
 
-    batteryLayout["Kệ 1"][0][0].status = inactive
-      ? "disconnected"
-      : isPumping
-      ? "pumping"
-      : lastP1SState;
+   
+    batteryLayout["Kệ 1"][0][0].status = "unknown"; // hoặc không set gì
 
     renderLayout();
   }, 1000);
-}, 11000);
+}, 1);
 
 // Vẽ lại giao diện dựa trên trạng thái các cell
 function renderLayout() {
